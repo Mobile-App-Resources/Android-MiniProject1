@@ -30,8 +30,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/write_board_item"
         android:visibility="gone"
+        android:id="@+id/write_board_item"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,14 +63,6 @@
                     android:adjustViewBounds="true"
                     android:src="@drawable/all"/>
             </LinearLayout>
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="10dp"
-                android:gravity="center_vertical"
-                android:id="@+id/board_item_commit"
-                android:textColor="#9daccb"
-                android:text="게시"/>
         </LinearLayout>
         <EditText
             android:layout_width="match_parent"
@@ -83,5 +75,18 @@
             android:gravity="top"
             android:backgroundTint="#ffffff"
             android:textColorHint="#9197a3"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="right">
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:id="@+id/board_item_commit"
+                android:textColor="#9daccb"
+                android:text="게시"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

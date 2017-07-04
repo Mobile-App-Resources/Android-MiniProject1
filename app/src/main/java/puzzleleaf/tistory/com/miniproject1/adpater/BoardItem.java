@@ -25,7 +25,6 @@ import puzzleleaf.tistory.com.miniproject1.objects.RepleObject;
 public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
     private RecyclerView.Adapter adapter;
-    private boolean repleFlag = false; // 댓글 초기화를 위한
     private boolean headerFlag = false; // 헤더인지 아닌지 구분
     private LayoutInflater mInflater;
 
@@ -88,11 +87,13 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         holder.boardItemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myData.obj.add(0,new BoardObject(holder.boardItemContents.getText().toString()));
+                myData.obj.add(new BoardObject(holder.boardItemContents.getText().toString()));
                 holder.boardItemContents.setText("");
                 holder.header.setVisibility(View.VISIBLE);
                 holder.headerItemWrite.setVisibility(View.GONE);
+                Toast.makeText(mInflater.getContext(),"게시물이 등록되었습니다.",Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
+                //왜 역순으로 하면 꼬이는지
          
             }
         });
@@ -101,11 +102,6 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
     //헤더가 아닌경우 게시물들을 바인드
     private void bodyBindInit(final ViewHolder holder, int position)
     {
-        if(repleFlag)
-        {
-            holder.repleObj.clear();
-            repleFlag = !repleFlag;
-        }
         holder.itemObject.setText(myData.obj.get(position).getContents());
         holder.leftImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
         holder.rightImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
@@ -129,11 +125,12 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             }
         });
 
+        //댓글 추가
         holder.itemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(holder.itemReple.length()>0) {
-                    holder.repleObj.add(0, new RepleObject(holder.itemReple.getText().toString()));
+                    holder.repleObj.add(new RepleObject(holder.itemReple.getText().toString()));
                     holder.itemReple.setText("");
                     holder.linearAdapter.notifyDataSetChanged();
                 }
