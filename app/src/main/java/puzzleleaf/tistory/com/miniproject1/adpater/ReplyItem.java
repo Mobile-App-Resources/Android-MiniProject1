@@ -10,14 +10,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import puzzleleaf.tistory.com.miniproject1.R;
-import puzzleleaf.tistory.com.miniproject1.objects.RepleObject;
+import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
 
-public class RepleItem extends RecyclerView.Adapter<RepleItem.ViewHolder> {
+public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
 
     private LayoutInflater mInflater;
-    private ArrayList<RepleObject> obj;
+    private ArrayList<ReplyObject> obj;
 
-    public RepleItem(Context context, ArrayList<RepleObject> obj)
+    public ReplyItem(Context context, ArrayList<ReplyObject> obj)
     {
         this.mInflater = LayoutInflater.from(context);
         this.obj = obj;
@@ -25,7 +25,7 @@ public class RepleItem extends RecyclerView.Adapter<RepleItem.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.activity_reple_item, parent,false);
+        View view = mInflater.inflate(R.layout.activity_reply_item, parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -33,7 +33,7 @@ public class RepleItem extends RecyclerView.Adapter<RepleItem.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         if(!obj.isEmpty())
-             holder.repleItem.setText(obj.get(position).getContents().toString());
+             holder.replyItem.setText(obj.get(position).getContents().toString());
     }
 
 
@@ -44,12 +44,12 @@ public class RepleItem extends RecyclerView.Adapter<RepleItem.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView repleItem;
+        private TextView replyItem;
 
         public ViewHolder(View itemView)
         {
             super(itemView);
-            repleItem = (TextView)itemView.findViewById(R.id.reple_contents);
+            replyItem = (TextView)itemView.findViewById(R.id.reply_contents);
 
         }
 

@@ -20,7 +20,7 @@ import java.util.Random;
 import puzzleleaf.tistory.com.miniproject1.R;
 import puzzleleaf.tistory.com.miniproject1.myData;
 import puzzleleaf.tistory.com.miniproject1.objects.BoardObject;
-import puzzleleaf.tistory.com.miniproject1.objects.RepleObject;
+import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
 
 public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
@@ -130,7 +130,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             @Override
             public void onClick(View v) {
                 if(holder.itemReple.length()>0) {
-                    holder.repleObj.add(new RepleObject(holder.itemReple.getText().toString()));
+                    holder.repleObj.add(new ReplyObject(holder.itemReple.getText().toString()));
                     holder.itemReple.setText("");
                     holder.linearAdapter.notifyDataSetChanged();
                 }
@@ -169,8 +169,8 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         private ImageView itemCommit; // 댓글 등록 이미지 업데이트용
         private RecyclerView commentRecyclerView;
         private LinearLayoutManager linearLayoutManager;
-        private RepleItem linearAdapter;
-        private ArrayList<RepleObject> repleObj;
+        private ReplyItem linearAdapter;
+        private ArrayList<ReplyObject> repleObj;
 
         //헤더
         private LinearLayout header;
@@ -206,7 +206,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             rightImg = (ImageView)itemView.findViewById(R.id.rightImg);
 
             //댓글
-            itemReple = (EditText)itemView.findViewById(R.id.item_reple);
+            itemReple = (EditText)itemView.findViewById(R.id.item_reply);
             itemCommit= (ImageView)itemView.findViewById(R.id.item_commit);
 
             //댓글 RecyclerView
@@ -214,7 +214,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             repleObj = new ArrayList<>();
 
             linearLayoutManager = new LinearLayoutManager(itemView.getContext());
-            linearAdapter = new RepleItem(itemView.getContext(),repleObj);
+            linearAdapter = new ReplyItem(itemView.getContext(),repleObj);
             commentRecyclerView.setLayoutManager(linearLayoutManager);
             commentRecyclerView.setAdapter(linearAdapter);
         }

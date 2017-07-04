@@ -215,7 +215,7 @@
                     android:layout_marginLeft="10dp"
                     android:backgroundTint="#ffffff"
                     android:textColor="#000000"
-                    android:id="@+id/item_reple"
+                    android:id="@+id/item_reply"
                     android:hint="댓글을 입력하세요.."
                     android:textColorHint="#9197a3"/>
                 <ImageView

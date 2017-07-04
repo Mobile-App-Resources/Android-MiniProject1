@@ -1,11 +1,11 @@
 package puzzleleaf.tistory.com.miniproject1.objects;
 
 
-public class RepleObject {
+public class ReplyObject {
 
     private String contents;
 
-    public RepleObject(String contents)
+    public ReplyObject(String contents)
     {
         this.contents = contents;
     }
