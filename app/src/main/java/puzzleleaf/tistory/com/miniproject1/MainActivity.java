@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,10 +25,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbarInit();
         recyclerViewInit();
         swipeInit();
     }
 
+    private void toolbarInit()
+    {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setContentInsetsAbsolute(0,0);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
     private void recyclerViewInit()
     {
         myRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
@@ -51,9 +60,13 @@ public class MainActivity extends AppCompatActivity {
     //게시물 초기화
     private void refrash()
     {
-        myData.obj.clear();
-        linearAdapter.notifyDataSetChanged();
-        Toast.makeText(getApplicationContext(),"초기화 되었습니다.",Toast.LENGTH_LONG).show();
+        if(myData.obj.size()>0) {
+            myData.obj.clear();
+            linearAdapter.notifyDataSetChanged();
+            Toast.makeText(getApplicationContext(), "초기화 되었습니다.", Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(getApplicationContext(), "등록된 게시물이 없습니다.", Toast.LENGTH_LONG).show();
     }
 
     public void Message(View v)

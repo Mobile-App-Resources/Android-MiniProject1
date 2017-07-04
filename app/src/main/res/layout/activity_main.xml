@@ -6,12 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="puzzleleaf.tistory.com.miniproject1.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3b5998">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:background="#3b5998">
+        android:orientation="horizontal">
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -35,6 +39,7 @@
             android:onClick="Message"
             android:src="@drawable/message"/>
     </LinearLayout>
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
