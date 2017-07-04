@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +26,10 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
     private RecyclerView.Adapter adapter;
     private boolean repleFlag = false; // 댓글 초기화를 위한
-    private boolean headerFlag = false;
+    private boolean headerFlag = false; // 헤더인지 아닌지 구분
     private LayoutInflater mInflater;
+
+    //랜덤 이미지 출력을 위한 변수
     private int imgRes[] = {R.drawable.sample1,R.drawable.sample2,R.drawable.sample3,R.drawable.sample4,R.drawable.sample5,R.drawable.sample6,R.drawable.sample7};
     private Random random = new Random();
 
