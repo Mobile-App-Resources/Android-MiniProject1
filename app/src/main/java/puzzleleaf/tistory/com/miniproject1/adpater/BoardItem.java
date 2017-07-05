@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import puzzleleaf.tistory.com.miniproject1.R;
-import puzzleleaf.tistory.com.miniproject1.myData;
+import puzzleleaf.tistory.com.miniproject1.MyData;
 import puzzleleaf.tistory.com.miniproject1.objects.BoardObject;
 import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
 
@@ -58,7 +58,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(!holder.isHeader && myData.obj.size()>0)
+        if(!holder.isHeader && MyData.obj.size()>0)
             bodyBindInit(holder,position-1);
         else
             headerBindInit(holder);
@@ -87,7 +87,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         holder.boardItemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myData.obj.add(0,new BoardObject(holder.boardItemContents.getText().toString()));
+                MyData.obj.add(0,new BoardObject(holder.boardItemContents.getText().toString()));
                 holder.boardItemContents.setText("");
                 holder.header.setVisibility(View.VISIBLE);
                 holder.headerItemWrite.setVisibility(View.GONE);
@@ -103,7 +103,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
     private void bodyBindInit(final ViewHolder holder, final int position)
     {
         replyAdapterInit(holder,position);
-        holder.itemObject.setText(myData.obj.get(position).getContents());
+        holder.itemObject.setText(MyData.obj.get(position).getContents());
         holder.leftImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
         holder.rightImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
 
@@ -131,7 +131,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             @Override
             public void onClick(View v) {
                 if(holder.itemReply.length()>0) {
-                    myData.obj.get(position).getReplyObjects().add(new ReplyObject(holder.itemReply.getText().toString()));
+                    MyData.obj.get(position).getReplyObjects().add(new ReplyObject(holder.itemReply.getText().toString()));
                     holder.itemReply.setText("");
                     holder.linearAdapter.notifyDataSetChanged();
                 }
@@ -157,7 +157,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return myData.obj.size()+1;
+        return MyData.obj.size()+1;
     }
 
 

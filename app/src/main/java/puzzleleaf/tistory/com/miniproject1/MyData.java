@@ -8,6 +8,6 @@ import puzzleleaf.tistory.com.miniproject1.objects.BoardObject;
  * Created by cmtyx on 2017-07-04.
  */
 
-public class myData {
+public class MyData {
     public static ArrayList<BoardObject> obj = new ArrayList<>();
 }

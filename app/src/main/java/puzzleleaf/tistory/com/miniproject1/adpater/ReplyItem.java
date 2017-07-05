@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import puzzleleaf.tistory.com.miniproject1.R;
-import puzzleleaf.tistory.com.miniproject1.myData;
+import puzzleleaf.tistory.com.miniproject1.MyData;
 import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
 
 public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
@@ -21,7 +21,7 @@ public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
     public ReplyItem(Context context, int position)
     {
         this.mInflater = LayoutInflater.from(context);
-        this.obj = myData.obj.get(position).getReplyObjects();
+        this.obj = MyData.obj.get(position).getReplyObjects();
     }
 
     @Override

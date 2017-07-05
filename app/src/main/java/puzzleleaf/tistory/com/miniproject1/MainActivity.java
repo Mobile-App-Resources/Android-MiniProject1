@@ -9,10 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import puzzleleaf.tistory.com.miniproject1.adpater.BoardItem;
-import puzzleleaf.tistory.com.miniproject1.objects.BoardObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
     //게시물 초기화
     private void refrash()
     {
-        if(myData.obj.size()>0) {
-            myData.obj.clear();
+        if(MyData.obj.size()>0) {
+            MyData.obj.clear();
             linearAdapter.notifyDataSetChanged();
             Toast.makeText(getApplicationContext(), "초기화 되었습니다.", Toast.LENGTH_LONG).show();
         }
