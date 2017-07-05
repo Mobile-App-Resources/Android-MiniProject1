@@ -87,27 +87,28 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         holder.boardItemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myData.obj.add(new BoardObject(holder.boardItemContents.getText().toString()));
+                myData.obj.add(0,new BoardObject(holder.boardItemContents.getText().toString()));
                 holder.boardItemContents.setText("");
                 holder.header.setVisibility(View.VISIBLE);
                 holder.headerItemWrite.setVisibility(View.GONE);
                 Toast.makeText(mInflater.getContext(),"게시물이 등록되었습니다.",Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
-                //왜 역순으로 하면 꼬이는지
+
          
             }
         });
     }
 
     //헤더가 아닌경우 게시물들을 바인드
-    private void bodyBindInit(final ViewHolder holder, int position)
+    private void bodyBindInit(final ViewHolder holder, final int position)
     {
+        replyAdapterInit(holder,position);
         holder.itemObject.setText(myData.obj.get(position).getContents());
         holder.leftImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
         holder.rightImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
 
         //댓글 입력시 등록 버튼이 보이도록 UI 업데이트
-        holder.itemReple.addTextChangedListener(new TextWatcher() {
+        holder.itemReply.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -129,16 +130,22 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         holder.itemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(holder.itemReple.length()>0) {
-                    holder.repleObj.add(new ReplyObject(holder.itemReple.getText().toString()));
-                    holder.itemReple.setText("");
+                if(holder.itemReply.length()>0) {
+                    myData.obj.get(position).getReplyObjects().add(new ReplyObject(holder.itemReply.getText().toString()));
+                    holder.itemReply.setText("");
                     holder.linearAdapter.notifyDataSetChanged();
                 }
                 else
                     Toast.makeText(mInflater.getContext(),"이미지 등록은 지원하지 않습니다.",Toast.LENGTH_LONG).show();
             }
         });
+    }
 
+    //각 게시물에 댓글 정보를 저장하는 방식
+    public void replyAdapterInit(ViewHolder holder, int position)
+    {
+        holder.linearAdapter = new ReplyItem(mInflater.getContext(),position);
+        holder.commentRecyclerView.setAdapter(holder.linearAdapter);
     }
 
 
@@ -165,12 +172,12 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         private ImageView rightImg;
 
         //댓글
-        private EditText itemReple; //댓글 작성
+        private EditText itemReply; //댓글 작성
         private ImageView itemCommit; // 댓글 등록 이미지 업데이트용
         private RecyclerView commentRecyclerView;
         private LinearLayoutManager linearLayoutManager;
         private ReplyItem linearAdapter;
-        private ArrayList<ReplyObject> repleObj;
+        private ArrayList<ReplyObject> replyObj;
 
         //헤더
         private LinearLayout header;
@@ -206,17 +213,15 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             rightImg = (ImageView)itemView.findViewById(R.id.rightImg);
 
             //댓글
-            itemReple = (EditText)itemView.findViewById(R.id.item_reply);
+            itemReply = (EditText)itemView.findViewById(R.id.item_reply);
             itemCommit= (ImageView)itemView.findViewById(R.id.item_commit);
 
             //댓글 RecyclerView
             commentRecyclerView = (RecyclerView)itemView.findViewById(R.id.comment_recyclerView);
-            repleObj = new ArrayList<>();
+            replyObj = new ArrayList<>();
 
             linearLayoutManager = new LinearLayoutManager(itemView.getContext());
-            linearAdapter = new ReplyItem(itemView.getContext(),repleObj);
             commentRecyclerView.setLayoutManager(linearLayoutManager);
-            commentRecyclerView.setAdapter(linearAdapter);
         }
 
 

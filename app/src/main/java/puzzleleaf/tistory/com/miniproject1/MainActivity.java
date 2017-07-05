@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         toolbarInit();
         recyclerViewInit();
         swipeInit();
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //게시물 초기화
     private void refrash()
     {
