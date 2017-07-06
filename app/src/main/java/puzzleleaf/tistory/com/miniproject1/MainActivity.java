@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "등록된 게시물이 없습니다.", Toast.LENGTH_LONG).show();
     }
 
-    public void Message(View v)
+    public void myMessage(View v)
     {
         Toast.makeText(this, "미 구현 기능입니다.", Toast.LENGTH_SHORT).show();
     }
