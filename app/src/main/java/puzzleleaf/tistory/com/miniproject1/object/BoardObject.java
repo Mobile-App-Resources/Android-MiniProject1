@@ -1,4 +1,4 @@
-package puzzleleaf.tistory.com.miniproject1.objects;
+package puzzleleaf.tistory.com.miniproject1.object;
 
 
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ public class BoardObject {
 
 
     private String contents;
-    private ArrayList<ReplyObject> replyObjects;
+    private ArrayList<ReplyObject> replyObjects ;
 
     public BoardObject(String contents) {
         this.contents = contents;

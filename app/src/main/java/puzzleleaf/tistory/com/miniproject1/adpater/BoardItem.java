@@ -14,13 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import puzzleleaf.tistory.com.miniproject1.R;
 import puzzleleaf.tistory.com.miniproject1.MyData;
-import puzzleleaf.tistory.com.miniproject1.objects.BoardObject;
-import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
+import puzzleleaf.tistory.com.miniproject1.object.BoardObject;
+import puzzleleaf.tistory.com.miniproject1.object.ReplyObject;
 
 public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
@@ -177,7 +176,6 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         private RecyclerView commentRecyclerView;
         private LinearLayoutManager linearLayoutManager;
         private ReplyItem linearAdapter;
-        private ArrayList<ReplyObject> replyObj;
 
         //헤더
         private LinearLayout header;
@@ -218,7 +216,6 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
             //댓글 RecyclerView
             commentRecyclerView = (RecyclerView)itemView.findViewById(R.id.comment_recyclerView);
-            replyObj = new ArrayList<>();
 
             linearLayoutManager = new LinearLayoutManager(itemView.getContext());
             commentRecyclerView.setLayoutManager(linearLayoutManager);

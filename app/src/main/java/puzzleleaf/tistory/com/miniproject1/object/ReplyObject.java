@@ -1,4 +1,4 @@
-package puzzleleaf.tistory.com.miniproject1.objects;
+package puzzleleaf.tistory.com.miniproject1.object;
 
 
 public class ReplyObject {

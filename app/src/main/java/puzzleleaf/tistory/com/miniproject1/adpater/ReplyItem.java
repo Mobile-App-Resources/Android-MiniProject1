@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import puzzleleaf.tistory.com.miniproject1.R;
 import puzzleleaf.tistory.com.miniproject1.MyData;
-import puzzleleaf.tistory.com.miniproject1.objects.ReplyObject;
+import puzzleleaf.tistory.com.miniproject1.object.ReplyObject;
 
 public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
 

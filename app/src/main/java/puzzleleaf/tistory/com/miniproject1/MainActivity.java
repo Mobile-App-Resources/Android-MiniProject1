@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import puzzleleaf.tistory.com.miniproject1.adpater.BoardItem;
+import puzzleleaf.tistory.com.miniproject1.object.BoardObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,25 +29,23 @@ public class MainActivity extends AppCompatActivity {
         swipeInit();
     }
 
-    private void toolbarInit()
-    {
+    private void toolbarInit() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setContentInsetsAbsolute(0,0);
+        toolbar.setContentInsetsAbsolute(0, 0);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
-    private void recyclerViewInit()
-    {
-        myRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+
+    private void recyclerViewInit() {
+        myRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
         linearAdapter = new BoardItem(this);
         myRecyclerView.setLayoutManager(linearLayoutManager);
         myRecyclerView.setAdapter(linearAdapter);
     }
 
-    private void swipeInit()
-    {
-        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
+    private void swipeInit() {
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -56,20 +55,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //게시물 초기화
-    private void refrash()
-    {
-        if(MyData.obj.size()>0) {
-            MyData.obj.clear();
-            linearAdapter.notifyDataSetChanged();
-            Toast.makeText(getApplicationContext(), "초기화 되었습니다.", Toast.LENGTH_LONG).show();
-        }
-        else
-            Toast.makeText(getApplicationContext(), "등록된 게시물이 없습니다.", Toast.LENGTH_LONG).show();
+    //게시물 업데이트
+    private void refrash() {
+        MyData.obj.add(0, new BoardObject("새로 추가된 게시물 입니다."));
+        Toast.makeText(this, "타임라인 갱신", Toast.LENGTH_SHORT).show();
+        linearAdapter.notifyDataSetChanged();
     }
 
-    public void myMessage(View v)
-    {
+    public void myMessage(View v) {
         Toast.makeText(this, "미 구현 기능입니다.", Toast.LENGTH_SHORT).show();
     }
 }
