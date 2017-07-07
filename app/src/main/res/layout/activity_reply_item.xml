@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="#f6f7f8"
+    android:background="@color/grayBoardBg"
     android:orientation="vertical"
     tools:context="puzzleleaf.tistory.com.miniproject1.MainActivity">
 

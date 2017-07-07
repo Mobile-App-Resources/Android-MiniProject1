@@ -14,12 +14,6 @@ public class BoardObject {
         replyObjects = new ArrayList<>();
     }
 
-    public BoardObject()
-    {
-        contents = " ";
-        replyObjects = new ArrayList<>();
-    }
-
     public ArrayList<ReplyObject> getReplyObjects()
     {
         return replyObjects;
@@ -29,7 +23,4 @@ public class BoardObject {
         return contents;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
-    }
 }

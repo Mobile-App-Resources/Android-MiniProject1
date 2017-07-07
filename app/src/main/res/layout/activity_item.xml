@@ -31,13 +31,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:textColor="@color/myText"
                     android:text="유태양"
                     android:textStyle="bold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#4e5665"
+                    android:textColor="@color/myTextInfo"
                     android:text="님이 새로운 사진 2장을 추가했습니다 -"/>
             </LinearLayout>
             <LinearLayout
@@ -47,13 +47,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:textColor="@color/myText"
                     android:textStyle="bold"
                     android:text="부스트캠프"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#4e5665"
+                    android:textColor="@color/myTextInfo"
                     android:text="님과 함께."/>
             </LinearLayout>
         </LinearLayout>
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="66dp"
-            android:textColor="#9197a3"
+            android:textColor="@color/myTextInfo"
             android:text="7월 2일 오후 4:21"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -137,7 +137,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="부스트캠프님 외 1명  "
-                android:textColor="#9197a3" />
+                android:textColor="@color/myTextInfo" />
         </LinearLayout>
     </LinearLayout>
 
@@ -180,7 +180,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#f6f7f8">
+        android:background="@color/grayBoardBg">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

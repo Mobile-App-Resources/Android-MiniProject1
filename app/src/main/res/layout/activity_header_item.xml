@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textColor="#000000"
+            android:textColor="@color/myText"
             android:text="태양님, 새글을 작성하시겠어요?"/>
     </LinearLayout>
     <LinearLayout
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="유태양"
-                    android:textColor="#000000"
+                    android:textColor="@color/myText"
                     android:textStyle="bold" />
                 <ImageView
                     android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:id="@+id/board_item_contents"
-            android:textColor="#000000"
+            android:textColor="@color/myText"
             android:hint="무슨 생각을 하고 계신가요?"
             android:gravity="top"
             android:backgroundTint="#ffffff"
