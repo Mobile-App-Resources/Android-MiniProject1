@@ -17,13 +17,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/activity_common_lr_margin"
             android:adjustViewBounds="true"
             android:src="@drawable/my" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/activity_common_lr_margin"
             android:textColor="@color/myText"
             android:text="태양님, 새글을 작성하시겠어요?"/>
     </LinearLayout>
@@ -41,15 +41,15 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/activity_common_lr_margin"
                 android:adjustViewBounds="true"
                 android:src="@drawable/my" />
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/activity_common_lr_margin"
+                android:layout_marginRight="@dimen/activity_common_lr_margin"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,8 +67,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/activity_common_lr_margin"
+            android:layout_marginRight="@dimen/activity_common_lr_margin"
             android:id="@+id/board_item_contents"
             android:textColor="@color/myText"
             android:hint="무슨 생각을 하고 계신가요?"
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/activity_common_lr_margin"
                 android:gravity="center_vertical"
                 android:id="@+id/board_item_commit"
                 android:textColor="#9daccb"

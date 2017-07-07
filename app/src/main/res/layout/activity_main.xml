@@ -19,8 +19,8 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/activity_common_lr_margin"
+            android:layout_marginRight="@dimen/activity_common_lr_margin"
             android:onClick="myMessage"
             android:src="@drawable/air"/>
         <EditText
@@ -34,8 +34,8 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/activity_common_lr_margin"
+            android:layout_marginRight="@dimen/activity_common_lr_margin"
             android:onClick="myMessage"
             android:src="@drawable/message"/>
     </LinearLayout>
