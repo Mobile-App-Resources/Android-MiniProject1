@@ -57,12 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     //게시물 업데이트
     private void refrash() {
-        MyData.obj.add(0, new BoardObject("새로 추가된 게시물 입니다."));
-        Toast.makeText(this, "타임라인 갱신", Toast.LENGTH_SHORT).show();
+        MyData.obj.add(0, new BoardObject(getResources().getString(R.string.refresh)));
+        Toast.makeText(this, getResources().getString(R.string.timeline_refresh), Toast.LENGTH_SHORT).show();
         linearAdapter.notifyDataSetChanged();
     }
 
     public void myMessage(View v) {
-        Toast.makeText(this, "미 구현 기능입니다.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.btn_text), Toast.LENGTH_SHORT).show();
     }
 }

@@ -18,8 +18,7 @@ public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
     private LayoutInflater mInflater;
     private ArrayList<ReplyObject> obj;
 
-    public ReplyItem(Context context, int position)
-    {
+    public ReplyItem(Context context, int position) {
         this.mInflater = LayoutInflater.from(context);
         this.obj = MyData.obj.get(position).getReplyObjects();
     }
@@ -47,8 +46,7 @@ public class ReplyItem extends RecyclerView.Adapter<ReplyItem.ViewHolder> {
 
         private TextView replyItem;
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
             replyItem = (TextView)itemView.findViewById(R.id.reply_contents);
 

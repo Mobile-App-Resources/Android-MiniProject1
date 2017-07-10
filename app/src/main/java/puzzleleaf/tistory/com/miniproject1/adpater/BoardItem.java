@@ -32,8 +32,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
     private Random random = new Random();
 
 
-    public BoardItem(Context context)
-    {
+    public BoardItem(Context context) {
         this.mInflater = LayoutInflater.from(context);
         adapter = this;
     }
@@ -57,15 +56,16 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(!holder.isHeader && MyData.obj.size()>0)
-            bodyBindInit(holder,position-1);
-        else
+        if(!holder.isHeader && MyData.obj.size()>0) {
+            bodyBindInit(holder, position - 1);
+        }
+        else {
             headerBindInit(holder);
+        }
     }
 
     //헤더 바인드
-    private void headerBindInit(final ViewHolder holder)
-    {
+    private void headerBindInit(final ViewHolder holder) {
         //UI 업데이트
         holder.header.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +83,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             }
         });
 
+        //게시물 등록
         holder.boardItemCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,8 +100,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
     }
 
     //헤더가 아닌경우 게시물들을 바인드
-    private void bodyBindInit(final ViewHolder holder, final int position)
-    {
+    private void bodyBindInit(final ViewHolder holder, final int position) {
         replyAdapterInit(holder,position);
         holder.itemObject.setText(MyData.obj.get(position).getContents());
         holder.leftImg.setImageResource(imgRes[random.nextInt(imgRes.length)]);
@@ -114,10 +114,12 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(count>0)
+                if(count>0) {
                     holder.itemCommit.setImageResource(R.drawable.commit);
-                else
+                }
+                else {
                     holder.itemCommit.setImageResource(R.drawable.camera);
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -134,15 +136,15 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
                     holder.itemReply.setText("");
                     holder.linearAdapter.notifyDataSetChanged();
                 }
-                else
-                    Toast.makeText(mInflater.getContext(),"이미지 등록은 지원하지 않습니다.",Toast.LENGTH_LONG).show();
+                else {
+                    Toast.makeText(mInflater.getContext(), "이미지 등록은 지원하지 않습니다.", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
     //각 게시물에 댓글 정보를 저장하는 방식
-    public void replyAdapterInit(ViewHolder holder, int position)
-    {
+    public void replyAdapterInit(ViewHolder holder, int position) {
         holder.linearAdapter = new ReplyItem(mInflater.getContext(),position);
         holder.commentRecyclerView.setAdapter(holder.linearAdapter);
     }
@@ -183,8 +185,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         private TextView boardItemCommit;
         private EditText boardItemContents;
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
 
             if(!isHeader)
@@ -194,8 +195,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         }
 
         //헤더 값 초기화
-        private void headerInit(View itemView)
-        {
+        private void headerInit(View itemView) {
             header = (LinearLayout)itemView.findViewById(R.id.board_header);
             headerItemWrite = (LinearLayout)itemView.findViewById(R.id.write_board_item);
             boardItemCommit = (TextView)itemView.findViewById(R.id.board_item_commit);
@@ -203,8 +203,7 @@ public class BoardItem extends RecyclerView.Adapter<BoardItem.ViewHolder> {
         }
 
         //게시글 값 초기화
-        private void init(View itemView)
-        {
+        private void init(View itemView) {
             //게시물
             itemObject = (TextView)itemView.findViewById(R.id.item_contents);
             leftImg = (ImageView)itemView.findViewById(R.id.leftImg);
