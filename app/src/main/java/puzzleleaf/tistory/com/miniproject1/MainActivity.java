@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         toolbarInit();
         recyclerViewInit();
         swipeInit();
+        dataAddInit();
+    }
+
+    private void dataAddInit() {
+        //초기 데이터 추가
+        MyData.obj.add(0, new BoardObject(getResources().getString(R.string.refresh)));
+        MyData.obj.add(0, new BoardObject(getResources().getString(R.string.refresh)));
     }
 
     private void toolbarInit() {
